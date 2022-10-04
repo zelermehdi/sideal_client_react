@@ -1,8 +1,13 @@
 import './Exemple.css'
 
 function Exemple() {
+      let Name ='jordan'
+
   return (
-    <p>Voici un exemple de composant, réutilises le à ta guise pour en créer d'autres</p>
+    <div>
+          <h1>Bonjour, <span className='nom'>{Name}</span> </h1>
+
+    </div>
   );
 }
 

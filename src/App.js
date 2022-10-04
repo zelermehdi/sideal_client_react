@@ -1,13 +1,17 @@
-import './App.css';
-import Exemple from './components/template/exemple/Exemple';
-import Nav from './components/template/nav/Nav';
+import "./App.css";
+import Header from "./components/template/header/Header";
+import Sidebar from "./components/template/sidebar/Sidebar";
+
+
 
 function App() {
   return (
     <div>
-      <Nav></Nav>
-      <Exemple></Exemple>
+      <Header></Header>
+      <Sidebar />
     </div>
+
+
   );
 }
 

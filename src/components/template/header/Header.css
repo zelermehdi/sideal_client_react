@@ -1,0 +1,15 @@
+header {
+    color: white;
+    background-color: #2259a6;
+    padding: 1em;
+    text-align: right;
+
+}
+.lien{
+    color: white;
+    text-decoration: none;
+    margin: 2%;
+    font-weight: bolder;
+ 
+ 
+}
