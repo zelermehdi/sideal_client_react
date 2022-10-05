@@ -1,10 +1,8 @@
 .select{
     height: 30px;
     width: 80%;
-    margin: 2%;
+    margin: 4%;
     background-color:rgb(67, 187, 194);
-    color: white;
-    font-weight: bold;
     text-align: center;
   
 }

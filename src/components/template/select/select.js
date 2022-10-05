@@ -4,7 +4,7 @@ import "./select.css";
 function SelectMenu() {
   return (
     <Form.Select aria-label="Default select example" className='select'>
-      <option>Membre actif
+      <option className='color'>Membre actif
       </option>
       <option value="1">Thomas</option>
       <option value="2">Cyril</option>

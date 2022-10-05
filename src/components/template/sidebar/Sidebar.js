@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import SelectMenu from "../select/select";
-
+import { LinkContainer } from "react-router-bootstrap";
 
 //import react pro sidebar components
 import {
@@ -26,8 +26,7 @@ import { RiPencilLine } from "react-icons/ri";
 import { AiOutlineTeam } from "react-icons/ai";
 
 import { ImCoinEuro } from "react-icons/im";
-import { VscAccount} from "react-icons/vsc";
-
+import { VscAccount } from "react-icons/vsc";
 
 //import sidebar css from react-pro-sidebar module and our custom css
 import "react-pro-sidebar/dist/css/styles.css";
@@ -41,8 +40,6 @@ const Sidebar = () => {
   const menuIconClick = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-
-
   };
 
   return (
@@ -51,13 +48,12 @@ const Sidebar = () => {
         {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
-          <div className="logotext">
-            
+            <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p>    {menuCollapse ? "JM" : "Jordan Mehdi"}</p>
-              <p>    {menuCollapse ? "" : <SelectMenu />}</p>
+              <p> {menuCollapse ? "JM" : "Jordan Mehdi"}</p>
+              <p> {menuCollapse ? "" : <SelectMenu />}</p>
             </div>
-       
+
             <div className="closemenu" onClick={menuIconClick}>
               {/* changing menu collapse icon on click */}
               {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
@@ -65,21 +61,30 @@ const Sidebar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}>
-                Accueil
-              </MenuItem>
-              <MenuItem icon={<FaList />}>Gérer activites</MenuItem>
-              <MenuItem icon={<FaRegHeart />}>gérer activites</MenuItem>
-              <MenuItem icon={<RiPencilLine />}>Notifications</MenuItem>
-              <MenuItem icon={<ImCoinEuro />}>Crédits</MenuItem>
-              <MenuItem icon={<AiOutlineTeam />}>Famille</MenuItem>
+              <LinkContainer to="/">
+                <MenuItem active={true} icon={<FiHome />}>
+                  Accueil
+                </MenuItem>
+              </LinkContainer>
+              <LinkContainer to="gerer">
+                <MenuItem icon={<FaList />}>Gérer activites</MenuItem>
+              </LinkContainer>
 
-              <MenuItem icon={<VscAccount />}>Mon compte</MenuItem>
+              <LinkContainer to="notifications">
+                <MenuItem icon={<RiPencilLine />}>Notifications</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="crédits">
+                <MenuItem icon={<ImCoinEuro />}>Crédits</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="famille">
+                <MenuItem icon={<AiOutlineTeam />}>Famille</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="compte">
+                <MenuItem icon={<VscAccount />}>Mon compte</MenuItem>
+              </LinkContainer>
             </Menu>
           </SidebarContent>
-          <SidebarFooter>
-       
-          </SidebarFooter>
+          <SidebarFooter></SidebarFooter>
         </ProSidebar>
       </aside>
     </>
@@ -87,9 +92,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-
-
-

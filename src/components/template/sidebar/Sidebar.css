@@ -38,14 +38,15 @@
     padding: 0 40px;
     color: #000;
     font-weight: bold;
+
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul {
     padding: 0 5px;
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
-    color: #000;
+font-size: 16px;
     margin: 10px 0px;
-    font-weight: bold;
+    color: black;
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
     background-color: white;
@@ -72,6 +73,5 @@
     #sidebar .pro-sidebar {
       height: 90vh;
     }
-   
     
   }
