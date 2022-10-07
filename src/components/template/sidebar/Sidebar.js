@@ -62,9 +62,7 @@ const Sidebar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <LinkContainer to="/">
-                <MenuItem active={true} icon={<FiHome />}>
-                  Accueil
-                </MenuItem>
+                <MenuItem icon={<FiHome />}>Accueil</MenuItem>
               </LinkContainer>
               <LinkContainer to="gerer">
                 <MenuItem icon={<FaList />}>Gérer activites</MenuItem>

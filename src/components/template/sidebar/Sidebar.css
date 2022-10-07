@@ -1,9 +1,11 @@
+
 #sidebar {
-    position: absolute;
-    width: 250px;
+  position: absolute;
+  width: 240px;
+
   }
   #sidebar .pro-sidebar {
-    /* height: 80vh; */
+    height: 92vh;
   }
   #sidebar .closemenu {
     color: white;
@@ -38,14 +40,18 @@
     padding: 0 40px;
     color: #000;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+
+
 
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul {
     padding: 0 5px;
+ 
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
 font-size: 16px;
-    margin: 10px 0px;
+
     color: black;
   }
   #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
@@ -71,7 +77,8 @@ font-size: 16px;
       overflow: hidden;
     }
     #sidebar .pro-sidebar {
-      height: 90vh;
+      height: 10
+      vh;
     }
     
   }
