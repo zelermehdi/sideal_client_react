@@ -9,7 +9,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/main/user/home/Home";
 import HomeAdmin from "./components/main/admin/home/HomeAdmin";
 import React from "react";
-import BaseComponent from "bootstrap/js/dist/base-component";
 
 function App() {
   return (
