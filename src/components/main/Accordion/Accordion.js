@@ -4,10 +4,8 @@ import { Container } from 'react-bootstrap';
 
 function AccordionBasique() {
   return (
-    <Container
-    style={{
-      width: "50%"
-      }}>
+    <Container>
+      <h1>FAQ</h1>
     <Accordion defaultActiveKey={['0']} alwaysOpen>
       <Accordion.Item eventKey="0">
         <Accordion.Header>Accordion Item #1</Accordion.Header>
@@ -46,7 +44,7 @@ function AccordionBasique() {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
-    </Container>
+  </Container>
   );
 }
 

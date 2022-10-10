@@ -7,21 +7,21 @@ import "./connexion.css";
 
 function Connexion() {
   return (
-    <Container
-      style={{
-        width: "50%"}}>
+
+    <Container>
+           <h1>Connexion</h1> 
     <Form className="form">
-      <Form.Group className="mb-3  " controlId="formBasicEmail">
+      <Form.Group className="mb-3  " controlId="email">
         <Form.Label>Adresse e-mail  </Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" placeholder="Entrer votre email" />
        
       </Form.Group>
 
-      <Form.Group className="mb-3 " controlId="formBasicPassword">
+      <Form.Group className="mb-3 " controlId="password">
         <Form.Label>Mot de passe </Form.Label>
         <Form.Control type="password" placeholder="Mot de passe" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      <Form.Group className="mb-3" controlId="remember">
         <Form.Check type="checkbox" label=" se souvenir de moi" />
       </Form.Group>
       <Button variant="primary" type="submit">

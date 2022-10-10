@@ -7,8 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/main/user/home/Home";
 import HomeAdmin from "./components/main/admin/home/HomeAdmin";
 import React from "react";
-import Connexion from "components/template/connexion/connexion"; 
-import Accordion from "./components/template/Accordion/Accordion";
+import Connexion from "components/main/connexion/connexion"; 
+import Accordion from "./components/main/Accordion/Accordion";
+import Inscription from "components/main/inscription/inscription"; 
+
+
 
 function App() {
   return (
@@ -27,6 +30,7 @@ function App() {
       </BrowserRouter>
       <Connexion />
       <Accordion />
+      <Inscription />
 
     </div>
   );

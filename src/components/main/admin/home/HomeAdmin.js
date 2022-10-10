@@ -1,15 +1,21 @@
 import SectionMessage from "components/general/sectionMessage/SectionMessage";
 import stockData from "components/general/json/message";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function HomeAdmin() {
   return (
     <div>
-      <h2>Home page Admin</h2>
-      <h4>demandes en attente</h4>
-      <SectionMessage title="Notifications" messages={stockData}/>
-      <h4>notifications</h4>
-      <SectionMessage title="Notifications" messages={stockData}/>
-    </div>
+            <h2>Accueil Administateur</h2>
+
+  <Row>
+        <Col xs="12" md="6">
+          <SectionMessage title="Notifications" messages={stockData} /></Col>
+        <Col xs="12" md="6">
+          <SectionMessage title="Messages" messages={stockData} />
+        </Col>
+      </Row>      
+      </div>
   );
 }
 export default HomeAdmin;
