@@ -1,0 +1,32 @@
+#connexion{
+    width: 100%;
+    
+}
+
+    h3{
+         text-align: center;
+    }
+    .route{
+        color: blue;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 5%;
+      
+    }
+    form{
+        margin: 5%;
+        font-family: 'Roboto';
+          font-weight: bold;}
+       
+    .bouton{
+        background-color: #2259A6;
+        border-radius: 0%;
+    }
+    #image{
+        margin-left: 25%;
+        margin-bottom: 5%;
+    }
+    .form-control{
+   border-radius: 0%;
+    
+    }

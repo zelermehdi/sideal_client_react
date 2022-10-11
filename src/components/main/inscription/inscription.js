@@ -1,11 +1,18 @@
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./inscription.css";
+   import image from  "./sideal.png";
+
 
 function Inscription() {
   return (
-    <Container>
-        <h1>Formulaire d'inscription</h1>
+    
+    <Container id="inscription">
+   
+   <img id='image' src={image} />
+
+        <h3>Formulaire d'inscription</h3>
       <Form className="form">
         <Form.Group className="mb-3  " controlId="surname">
           <Form.Label>Nom </Form.Label>
@@ -60,7 +67,7 @@ function Inscription() {
             label=" Je certifie avoir un certificat médical"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="bouton"  type="submit">
           Connexion
         </Button>
       </Form>

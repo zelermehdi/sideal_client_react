@@ -5,7 +5,7 @@ function SectionMessage(props) {
   return (
       <section id="messageSection">
         <h4>{props.title}</h4>
-        <div>
+        <div id="message">
           {props.messages.map((message) => {
               return (
                 <p>

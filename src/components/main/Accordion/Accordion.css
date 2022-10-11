@@ -1,0 +1,11 @@
+.accordion-button::after{
+    display: none;
+}
+
+#accordion * {
+    border-radius: 0px;
+}
+
+.question {
+    font-family: 'Roboto Mono', monospace;
+}

@@ -9,29 +9,56 @@ import HomeAdmin from "./components/main/admin/home/HomeAdmin";
 import React from "react";
 import Connexion from "components/main/connexion/connexion"; 
 import Accordion from "./components/main/Accordion/Accordion";
-import Inscription from "components/main/inscription/inscription"; 
+import Inscription from "components/main/inscription/inscription";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col"; 
 
 
 
 function App() {
+  let user = {
+    isAuthenticated: false,
+    role : "user"
+  };
+
+  const ThemeContext = React.createContext(null);
+
+  if(user.isAuthenticated) {
+    return (
+      <div id="App">
+        <Header />
+        <ThemeContext.Provider value={user}>
+          <BrowserRouter>
+            <Sidebar />
+            <Container className="py-4">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/gerer" element={<HomeAdmin />} />
+              </Routes>
+            </Container>
+          </BrowserRouter>
+        </ThemeContext.Provider>
+      </div>
+    );
+  }
+
   return (
     <div id="App">
-      <BrowserRouter>
-        <Header />
-
-        <Sidebar />
         <Container className="py-4">
-          <Routes>
-            {/* <Route path="/famille" element={<About />} /> */}
-            <Route path="/" element={<Home />} />
-            <Route path="/gerer" element={<HomeAdmin />} />
-          </Routes>
+          <Row>
+            <Col xs="12" md="6">
+              <Accordion />
+            </Col>
+            <Col xs="12" md="6">
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Connexion />} />
+                <Route path="/inscription" element={<Inscription />} />
+              </Routes>
+            </BrowserRouter>
+            </Col>
+          </Row>
         </Container>
-      </BrowserRouter>
-      <Connexion />
-      <Accordion />
-      <Inscription />
-
     </div>
   );
 }

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+    font-family: 'Roboto';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.mainTextColor {
+    color: #2259A6;
+}
+
+.mainBgColor {
+    background-color: #2259A6;
+    color: white
+}
+
+.secondaryBgColor {
+    background-color: #E5F0F0;
+}
