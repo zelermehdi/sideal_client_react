@@ -10,6 +10,7 @@ import React from "react";
 import Connexion from "components/main/connexion/connexion"; 
 import Accordion from "./components/main/Accordion/Accordion";
 import Inscription from "components/main/inscription/inscription";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
 
@@ -17,7 +18,7 @@ import Col from "react-bootstrap/Col";
 
 function App() {
   let user = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     role : "user"
   };
 
@@ -27,6 +28,7 @@ function App() {
     return (
       <div id="App">
         <Header />
+       
         <ThemeContext.Provider value={user}>
           <BrowserRouter>
             <Sidebar />
@@ -34,9 +36,11 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/gerer" element={<HomeAdmin />} />
+            
               </Routes>
             </Container>
           </BrowserRouter>
+  
         </ThemeContext.Provider>
       </div>
     );
@@ -59,6 +63,7 @@ function App() {
             </Col>
           </Row>
         </Container>
+ 
     </div>
   );
 }

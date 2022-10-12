@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 function HomeAdmin() {
   return (
     <div>
-            <h2>Accueil Administateur</h2>
+            <h2 className="mb-5 mt-2">Accueil Administateur</h2>
 
   <Row>
         <Col xs="12" md="6">

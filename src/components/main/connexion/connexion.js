@@ -8,8 +8,10 @@ import { LinkContainer } from "react-router-bootstrap";
 function Connexion(props) {
   return (
     <Container id="connexion">
-      <img id="image" src={image} />
-      <h3>Connexion</h3>
+      <div className="d-flex justify-content-center">
+          <img id="logo" src={image} alt="logo du sideal" className="w-25"/>
+      </div>
+      <h3 className="text-center mt-5">Connexion</h3>
       <Form className="form">
         <Form.Group className="mb-3  " controlId="email">
           <Form.Label>Adresse e-mail </Form.Label>
@@ -23,16 +25,15 @@ function Connexion(props) {
         <Form.Group className="mb-3" controlId="remember">
           <Form.Check type="checkbox" label=" se souvenir de moi" />
         </Form.Group>
-        <Button className="bouton" type="submit">
+        <Button className="mainBgColor" type="submit">
           Connexion
         </Button>
+        <div className="mt-3">
+          <LinkContainer to="inscription">
+            <a href="" className="mainTextColor">S’inscrire</a>
+          </LinkContainer>
+        </div>
       </Form>
-      <LinkContainer to="inscription">
-        <a href="" className="route">
-          {" "}
-          s’inscrire{" "}
-        </a>
-      </LinkContainer>
     </Container>
   );
 }

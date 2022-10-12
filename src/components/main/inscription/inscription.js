@@ -2,17 +2,21 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./inscription.css";
-   import image from  "./sideal.png";
+import image from  "./sideal.png";
+import { LinkContainer } from "react-router-bootstrap";
+
 
 
 function Inscription() {
   return (
     
-    <Container id="inscription">
+    <Container>
    
-   <img id='image' src={image} />
+      <div className="d-flex justify-content-center">
+          <img id="logo" src={image} alt="logo du sideal" className="w-25"/>
+      </div>
 
-        <h3>Formulaire d'inscription</h3>
+      <h3 className="text-center mt-5">Formulaire d'inscription</h3>
       <Form className="form">
         <Form.Group className="mb-3  " controlId="surname">
           <Form.Label>Nom </Form.Label>
@@ -68,8 +72,13 @@ function Inscription() {
           />
         </Form.Group>
         <Button className="bouton"  type="submit">
-          Connexion
+          S'inscrire 
         </Button>
+        <div className="mt-3">
+          <LinkContainer to="/">
+            <a href="" className="mainTextColor">se connecter</a>
+          </LinkContainer>
+          </div>
       </Form>
     </Container>
   );
