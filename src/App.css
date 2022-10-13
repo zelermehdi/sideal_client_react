@@ -37,3 +37,11 @@ a {
 .calendar{
     background-color: white;
 }
+
+.date-calendar{
+    background-color: rgb(67, 187, 194);
+    color: white;
+}
+.badge{
+    border-radius: 0%;
+}
