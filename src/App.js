@@ -11,12 +11,15 @@ import Connexion from "components/main/connexion/connexion";
 import Accordion from "./components/main/Accordion/Accordion";
 import Inscription from "components/main/inscription/inscription";
 
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
 
 
 
 function App() {
+
+
   let user = {
     isAuthenticated: true,
     role : "user"
