@@ -10,6 +10,8 @@ import React from "react";
 import Connexion from "components/main/connexion/connexion"; 
 import Accordion from "./components/main/Accordion/Accordion";
 import Inscription from "components/main/inscription/inscription";
+import UserRoutes from "routes/UserRoutes";
+import AdminRoutes from "routes/AdminRoutes";
 
 
 import Row from "react-bootstrap/Row";
@@ -21,26 +23,26 @@ function App() {
 
 
   let user = {
-    isAuthenticated: true,
-    role : "user"
+    isAuthenticated: false,
+    role : "admin"
   };
 
   const ThemeContext = React.createContext(null);
 
   if(user.isAuthenticated) {
+    let routing = <UserRoutes/>;
+    if(user.role === "admin") {
+      routing = <AdminRoutes/>
+    }
+
     return (
       <div id="App">
         <Header />
-       
         <ThemeContext.Provider value={user}>
           <BrowserRouter>
             <Sidebar />
             <Container className="py-4">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/gerer" element={<HomeAdmin />} />
-            
-              </Routes>
+              {routing} 
             </Container>
           </BrowserRouter>
   
