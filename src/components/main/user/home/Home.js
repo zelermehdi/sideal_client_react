@@ -5,6 +5,8 @@ import stockData from "components/general/json/message";
 import "./Home.css";
 import Calendrier from "components/main/calendrier/Calendrier";
 
+// displays messages that are in the messages section
+
 function Home() {
   return (
     <div>

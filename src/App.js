@@ -8,7 +8,7 @@ import Home from "./components/main/user/home/Home";
 import HomeAdmin from "./components/main/admin/home/HomeAdmin";
 import React from "react";
 import Connexion from "components/main/connexion/connexion"; 
-import Accordion from "./components/main/Accordion/Accordion";
+import Accordion from "./components/main/user/accordion/Accordion";
 import Inscription from "components/main/inscription/inscription";
 import UserRoutes from "routes/UserRoutes";
 import AdminRoutes from "routes/AdminRoutes";
@@ -21,10 +21,10 @@ import Col from "react-bootstrap/Col";
 
 function App() {
 
-
+  // display of routes in relation to the status of the person
   let user = {
-    isAuthenticated: false,
-    role : "admin"
+    isAuthenticated: true,
+    role : "user"
   };
 
   const ThemeContext = React.createContext(null);

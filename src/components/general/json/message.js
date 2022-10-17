@@ -1,4 +1,5 @@
  export let stockData = [
+  // a test file to display the messages in our interface
     {
      id:1,
      message: "il vous manque la carte de commune",
