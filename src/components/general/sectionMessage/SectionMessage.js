@@ -2,8 +2,20 @@ import Badge from "react-bootstrap/Badge";
 import "./SectionMessage.css";
 
 function SectionMessage(props) {
+
+
+
+
+
+  
   return (
     // using props to display messages that are in the JSON message folder
+
+
+
+
+
+    
     <section>
       <h4 className="mainTextColor mb-3">{props.title}</h4>
       <div className="secondaryBgColor" id="messageContainer">

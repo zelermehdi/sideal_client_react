@@ -3,19 +3,36 @@ import Col from "react-bootstrap/Col";
 import SectionMessage from "../../../general/sectionMessage/SectionMessage";
 import stockData from "components/general/json/message";
 import "./Home.css";
+import axios from 'axios';
+import React, { useState , useEffect} from 'react';
+
+
+
+
 import Calendrier from "components/main/calendrier/Calendrier";
 
 // displays messages that are in the messages section
 
 function Home() {
+  // Envoyer une requête HTTP pour récupérer les logs de l'API
+  const [messages, setMessages] = useState([]);
+  
+  useEffect(() => {
+    axios.get(`http://sideal_refonte.local/api/platformlogs`)
+      .then(res => {
+        const messages = res.data;
+        setMessages( messages );
+      })
+  }, []);
+
   return (
     <div>
       <h2>Accueil utilisateur</h2>
       <Row>
         <Col xs="12" md="6">
-          <SectionMessage title="Notifications" messages={stockData} /></Col>
+          <SectionMessage title="Notifications" messages={messages} /></Col>
         <Col xs="12" md="6">
-          <SectionMessage title="Messages" messages={stockData} />
+          <SectionMessage title="Messages" messages={messages} />
         </Col>
         <Col xs='12'>
           <Calendrier />
@@ -25,4 +42,5 @@ function Home() {
    
   );
 }
+
 export default Home;
