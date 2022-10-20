@@ -18,7 +18,7 @@ function Home() {
   const [messages, setMessages] = useState([]);
   
   useEffect(() => {
-    axios.get(`http://sideal_refonte.local/api/platformlogs`)
+    axios.get(`http://127.0.0.1:8000/api/platformlogs`)
       .then(res => {
         const messages = res.data;
         setMessages( messages );

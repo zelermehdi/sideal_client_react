@@ -3,24 +3,46 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./connexion.css";
 import image from "./sideal.png";
+import react, {useState} from 'react';
 import { LinkContainer } from "react-router-bootstrap";
 
 function Connexion(props) {
+
+
+  const [connexionInput, setConnexionInput ] = useState({
+    email:  '',
+    password: '',
+  });
+
+   const handleInput = (e)=>{
+    setConnexionInput({...connexionInput, [e.target.name] : e.target.value}) ;
+   }
+
+  const connexionSubmit = (e)=>{
+    e.preventDefault();
+    console.log (connexionInput)
+
+
+
+    
+  }
+
+
   return (
     <Container id="connexion">
       <div className="d-flex justify-content-center">
           <img id="logo" src={image} alt="logo du sideal" className="w-25"/>
       </div>
       <h3 className="text-center mt-5">Connexion</h3>
-      <Form className="form">
+      <Form className="form" onSubmit={connexionSubmit}>
         <Form.Group className="mb-3  " controlId="email">
           <Form.Label>Adresse e-mail </Form.Label>
-          <Form.Control type="email" placeholder="Entrer votre email" />
+          <Form.Control type="email"  name ="email" onChange ={handleInput} value={connexionInput.email} placeholder="Entrer votre email" />
         </Form.Group>
 
         <Form.Group className="mb-3 " controlId="password">
           <Form.Label>Mot de passe </Form.Label>
-          <Form.Control type="password" placeholder="Mot de passe" />
+          <Form.Control type="password" name='password' onChange={handleInput} value={connexionInput.password} placeholder="Mot de passe" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="remember">
           <Form.Check type="checkbox" label=" se souvenir de moi" />

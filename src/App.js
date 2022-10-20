@@ -23,7 +23,7 @@ function App() {
 
   // display of routes in relation to the status of the person
   let user = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     role : "user"
   };
 
