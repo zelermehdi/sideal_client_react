@@ -5,6 +5,8 @@ import "./connexion.css";
 import image from "./sideal.png";
 import react, {useState} from 'react';
 import { LinkContainer } from "react-router-bootstrap";
+import axios from 'axios';
+
 
 function Connexion(props) {
 
@@ -23,10 +25,10 @@ function Connexion(props) {
     console.log (connexionInput)
 
 
-
+axios.post('localhost:3000/api', connexionInput).then((response)=>{
     
+});
   }
-
 
   return (
     <Container id="connexion">

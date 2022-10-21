@@ -1,10 +1,10 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SectionMessage from "../../../general/sectionMessage/SectionMessage";
-import stockData from "components/general/json/message";
 import "./Home.css";
 import axios from 'axios';
 import React, { useState , useEffect} from 'react';
+
 
 
 
@@ -18,7 +18,7 @@ function Home() {
   const [messages, setMessages] = useState([]);
   
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/platformlogs`)
+    axios.get(`http://sideal-refonte-api.local/api/plateformlogs`)
       .then(res => {
         const messages = res.data;
         setMessages( messages );
