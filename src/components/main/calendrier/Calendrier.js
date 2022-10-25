@@ -29,6 +29,40 @@ function Calendrier(props) {
         let dayNumber = event.target.getElementsByClassName('weekDay')[0].innerText;
         setselectedDay(weekDays[dayNumber]);
     };
+
+
+    
+//  const next = evet=> {
+
+ 
+
+//         currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+//         currentMonth = (currentMonth + 1) % 12;
+
+
+
+//     };
+
+
+
+
+
+    
+    //   const previous= event => {
+
+
+
+
+    //     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    //     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+
+    // };
+    
+
+
+
+
+    
  
   return (
     <section>
@@ -55,7 +89,7 @@ function Calendrier(props) {
                     })}
 
                         <Col xs="4" className="d-flex justify-content-center align-items-center">
-                            <span className="me-1  p-1 mainBgColor border border-dark">{<FaArrowLeft />}</span>
+                            <span className="me-1  p-1 mainBgColor border border-dark"id="previous" >{<FaArrowLeft />}</span>
                             <span className="ms-1  p-1 mainBgColor border border-dark">{<FaArrowRight />}</span>
                         </Col> 
                 </Row>
