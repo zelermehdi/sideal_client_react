@@ -4,11 +4,13 @@ import Col from "react-bootstrap/Col";
 import {FaArrowLeft  } from "react-icons/fa"
 import { FaArrowRight } from "react-icons/fa"
 import {useState} from 'react';
+import React from 'react'
 
 
 
 function Calendrier(props) {
     // function to retrieve the days of the week
+   
     let date = new Date();
     let currentDay = date.getDate();
     let weekDays = [];
@@ -29,6 +31,12 @@ function Calendrier(props) {
         let dayNumber = event.target.getElementsByClassName('weekDay')[0].innerText;
         setselectedDay(weekDays[dayNumber]);
     };
+
+
+
+        
+
+
 
 
     
@@ -67,6 +75,7 @@ function Calendrier(props) {
   return (
     <section>
       <h4 className="mainTextColor mt-5">Planning</h4> 
+      
       <div class="secondaryBgColor mt-3 py-5" id="planningContainer">
         <Row>
             <Col xs="12" md="6">

@@ -22,7 +22,7 @@ function SectionMessage(props) {
                     <span>20 -09-2022</span><Badge className="p-2" bg={message.type}>{translation[message.type]}</Badge>
                   </div>
                   <div className="text">
-                  <p>{message.message}</p>
+                  <p className="0.2rem">{message.message}</p>
                   </div>
                 </li>
               </>

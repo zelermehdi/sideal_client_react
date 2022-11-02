@@ -40,7 +40,13 @@ const Sidebar = () => {
   const menuIconClick = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+  
+
   };
+
+  const name=localStorage.getItem('user.email')
+     
+
 
   return (
     <>
@@ -50,7 +56,7 @@ const Sidebar = () => {
           <SidebarHeader>
             <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p> {menuCollapse ? "JM" : "Jordan Mehdi"}</p>
+              <p> {menuCollapse ? "JM" : name}</p>
               <p> {menuCollapse ? "" : <SelectMenu />}</p>
             </div>
 
