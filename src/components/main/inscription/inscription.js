@@ -2,6 +2,8 @@
 import "./inscription.css";
 // Bootstrap Components
 import { Container, Button, Form } from "react-bootstrap";
+import Badge from "react-bootstrap/Badge";
+
 // Components
 import image from "./sideal.png";
 // React components
@@ -10,6 +12,12 @@ import React, { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
+
+axios.defaults.baseURL = "http://sideal-refonte-api.local/";
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.post["Accept"] = "application/json";
+
+axios.defaults.withCredentials = true;
 
 function Inscription() {
   const [inscriptionInput, setInscriptionInput] = useState({
@@ -23,7 +31,9 @@ function Inscription() {
     email: "",
     password: "",
     confirm_password: "",
+    error_list: [],
   });
+
 
   const handleInput = (e) => {
     setInscriptionInput({
@@ -32,30 +42,22 @@ function Inscription() {
     });
   };
 
+
+
   const inscriptionSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      first_name: inscriptionInput.first_name,
-      last_name: inscriptionInput.last_name,
-      birthdate: inscriptionInput.birthdate,
-      phone: inscriptionInput.phone,
-      adresse: inscriptionInput.adresse,
-      city: inscriptionInput.city,
-      code_postal: inscriptionInput.code_postal,
-      email: inscriptionInput.email,
-      password: inscriptionInput.password,
-      confirm_password: inscriptionInput.confirm_password,
-    };
-
-    axios.post("http://sideal-refonte-api.local/register", data).then((res) => {
+    console.log(inscriptionInput);
+    axios.post("http://sideal-refonte-api.local/register", inscriptionInput).then((res) => {
       if (res.data.status === 200) {
-        localStorage.setItem("auth_token", res.data.token);
-        localStorage.setItem("auth_name", res.data.username);
+        console.log("success");
+        // localStorage.setItem("auth_token", res.data.token);
+        // localStorage.setItem("auth_name", res.data.username);
         swal("Success", res.data.message, "success");
-      } else {
+      } 
+      else {
         setInscriptionInput({
           ...inscriptionInput,
-          error_list: res.data.validation_errors,
+          error_list: res.data.validation_errors
         });
       }
     });
@@ -78,6 +80,9 @@ function Inscription() {
             value={inscriptionInput.first_name}
             placeholder="Nom de famille"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.first_name}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="name">
@@ -89,6 +94,9 @@ function Inscription() {
             value={inscriptionInput.last_name}
             placeholder="Prénom"
           />
+           <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.last_name}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="birthdate">
@@ -100,6 +108,9 @@ function Inscription() {
             value={inscriptionInput.birthdate}
             placeholder="Date de naissance"
           />
+           <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.birthdate}
+          </Badge>
         </Form.Group>
         <Form.Group className="mb-3  " controlId="email">
           <Form.Label>Adresse e-mail </Form.Label>
@@ -110,6 +121,9 @@ function Inscription() {
             value={inscriptionInput.email}
             placeholder="Entrer votre email"
           />
+          <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.email}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="password">
@@ -121,6 +135,9 @@ function Inscription() {
             value={inscriptionInput.password}
             placeholder="Mot de passe"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.password}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="password-confirm">
@@ -132,6 +149,9 @@ function Inscription() {
             value={inscriptionInput.confirm_password}
             placeholder="veuillez confirmer votre mot de passe"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.confirm_password}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="phone">
@@ -143,6 +163,9 @@ function Inscription() {
             value={inscriptionInput.phone}
             placeholder="Entrer votre numéro de téléphone"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.phone}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3  " controlId="adresse">
@@ -154,6 +177,9 @@ function Inscription() {
             value={inscriptionInput.adresse}
             placeholder="Entrer votre adresse"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.adresse}
+          </Badge>
         </Form.Group>
         <Form.Group className="mb-3  " controlId="cp">
           <Form.Label>Code postal</Form.Label>
@@ -164,6 +190,9 @@ function Inscription() {
             value={inscriptionInput.code_postal}
             placeholder="Entrer votre code postal"
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.code_postal}
+          </Badge>
         </Form.Group>
         <Form.Group className="mb-3  " controlId="city">
           <Form.Label>Ville</Form.Label>
@@ -174,6 +203,9 @@ function Inscription() {
             value={inscriptionInput.city}
             placeholder="Entrer votre ville de résidence "
           />
+            <Badge className="bg-white text-danger">
+            {inscriptionInput.error_list.city}
+          </Badge>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="checkregister">
