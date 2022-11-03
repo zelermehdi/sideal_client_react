@@ -1,10 +1,13 @@
-import { Container } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+// CSS
 import "./inscription.css";
+// Bootstrap Components
+import { Container, Button, Form } from "react-bootstrap";
+// Components
 import image from "./sideal.png";
+// React components
+import React, { useState } from "react";
+// Other librairies
 import { LinkContainer } from "react-router-bootstrap";
-import react, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -44,20 +47,18 @@ function Inscription() {
       confirm_password: inscriptionInput.confirm_password,
     };
 
-      axios.post("http://sideal-refonte-api.local/register", data)
-        .then((res) => {
-          if (res.data.status === 200) {
-            localStorage.setItem("auth_token", res.data.token);
-            localStorage.setItem("auth_name", res.data.username);
-            swal("Success", res.data.message, "success");
-          } else {
-            setInscriptionInput({
-              ...inscriptionInput,
-              error_list: res.data.validation_errors,
-            });
-          }
+    axios.post("http://sideal-refonte-api.local/register", data).then((res) => {
+      if (res.data.status === 200) {
+        localStorage.setItem("auth_token", res.data.token);
+        localStorage.setItem("auth_name", res.data.username);
+        swal("Success", res.data.message, "success");
+      } else {
+        setInscriptionInput({
+          ...inscriptionInput,
+          error_list: res.data.validation_errors,
         });
-   
+      }
+    });
   };
 
   return (

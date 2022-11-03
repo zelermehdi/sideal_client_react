@@ -1,53 +1,42 @@
+// CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Container from "react-bootstrap/Container";
+// Bootstrap Components
+import { Container, Row, Col } from "react-bootstrap";
+// Template parts
 import Header from "./components/template/header/Header";
 import Sidebar from "./components/template/sidebar/Sidebar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/main/user/home/Home";
-import HomeAdmin from "./components/main/admin/home/HomeAdmin";
-import React, { useState } from "react";
+// Components
 import Connexion from "components/main/connexion/connexion";
 import Accordion from "./components/main/user/accordion/Accordion";
 import Inscription from "components/main/inscription/inscription";
 import UserRoutes from "routes/UserRoutes";
 import AdminRoutes from "routes/AdminRoutes";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import axios from "axios";
-
-axios.defaults.baseURL = "http://sideal-refonte-api.local/";
-axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.headers.post["Accept"] = "application/json";
-
-axios.defaults.withCredentials = true;
-
-axios.interceptors.request.use(function (config) {
-  const token = localStorage.getItem("auth_token");
-  config.headers.Authorization = token ? `Bearer ${token}` : "";
-  return config;
-});
+// React components
+import React, { useState } from "react";
+// Other librairies
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const ThemeContext = React.createContext(null);
 
 function App() {
-  //find user in json user object
+  // Retrieve the user object from local storage and keep it as state
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
-  // Update user status after connexion
+  // Update user status after connexion if successful, set both local storage and state to update the view
   const updateUser = function(data) {
     localStorage.setItem('user', JSON.stringify(data.user));
     setUser(data.user);
   }
   
-
+  // If we find a connected user
   if (user) {
-    // display of routes in relation to the status of the person
+    // display of routes in relation to the status of the user
     let routing = <UserRoutes />;
     if (user.role === 1) {
       routing = <AdminRoutes />;
     }
-
+    // Show the application interface for connected users
     return (
       <div id="App">
         <Header />
@@ -61,7 +50,7 @@ function App() {
     );
   }
 
-  // If user is not authenticated
+  // If user is not authenticated show the connexion page
   return (
     <div id="App">
       <Container className="py-4">

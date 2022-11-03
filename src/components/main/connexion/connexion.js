@@ -1,13 +1,14 @@
-import { Container } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+// CSS
 import "./connexion.css";
+// Bootstrap Components
+import { Container, Button, Form } from "react-bootstrap";
 import image from "./sideal.png";
-import react, { useState, useContext } from "react";
+// React components
+import React, { useState, useContext } from "react";
+// Other librairies
 import { LinkContainer } from "react-router-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
-import React from "react";
 
 axios.defaults.baseURL = "http://sideal-refonte-api.local/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -27,10 +28,12 @@ function Connexion(props) {
     email: "",
     password: "",
   });
+
   // push the values ​​entered in the form into the variable connectioninput
   const handleInput = (e) => {
     setConnexionInput({ ...connexionInput, [e.target.name]: e.target.value });
   };
+
   // when we click on the submit button, an axios request is sent, if the match is ok, we update the data to the parent element
   const connexionSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +47,7 @@ function Connexion(props) {
     });
   };
   
+  // Show the connexion form
   return (
     <Container id="connexion">
       <div className="d-flex justify-content-center">

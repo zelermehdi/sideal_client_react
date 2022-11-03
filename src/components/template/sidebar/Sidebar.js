@@ -1,9 +1,12 @@
-//import useState hook to create menu collapse state
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
+// CSS
+import "react-pro-sidebar/dist/css/styles.css";
+import "./Sidebar.css";
+// Template parts
 import SelectMenu from "../select/select";
+// React components
+import React, { useState } from "react";
+// Other librairies
 import { LinkContainer } from "react-router-bootstrap";
-
 //import react pro sidebar components
 import {
   ProSidebar,
@@ -13,7 +16,6 @@ import {
   SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
-
 //import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
 import {
@@ -24,13 +26,9 @@ import {
 } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
 import { AiOutlineTeam } from "react-icons/ai";
-
 import { ImCoinEuro } from "react-icons/im";
 import { VscAccount } from "react-icons/vsc";
 
-//import sidebar css from react-pro-sidebar module and our custom css
-import "react-pro-sidebar/dist/css/styles.css";
-import "./Sidebar.css";
 
 const Sidebar = () => {
   //create initial menuCollapse state using useState hook
@@ -40,13 +38,7 @@ const Sidebar = () => {
   const menuIconClick = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-  
-
   };
-
-  const name=localStorage.getItem('user.email')
-     
-
 
   return (
     <>
@@ -56,7 +48,7 @@ const Sidebar = () => {
           <SidebarHeader>
             <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p> {menuCollapse ? "JM" : name}</p>
+              <p> {menuCollapse ? "JM" : "h"}</p>
               <p> {menuCollapse ? "" : <SelectMenu />}</p>
             </div>
 
