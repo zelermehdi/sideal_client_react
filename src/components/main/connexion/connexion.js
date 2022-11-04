@@ -37,16 +37,17 @@ function Connexion(props) {
   // when we click on the submit button, an axios request is sent, if the match is ok, we update the data to the parent element
   const connexionSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://sideal-refonte-api.local/login", connexionInput).then((res) => {
-      if (res.data.status === 200) {
-        props.updateUser(res.data);
-      } 
-      else {
-        swal("Warning", res.data.message, "warning");
-      }
-    });
+    axios
+      .post("http://sideal-refonte-api.local/login", connexionInput)
+      .then((res) => {
+        if (res.data.status === 200) {
+          props.updateUser(res.data);
+        } else {
+          swal("Warning", res.data.message, "warning");
+        }
+      });
   };
-  
+
   // Show the connexion form
   return (
     <Container id="connexion">
@@ -55,7 +56,6 @@ function Connexion(props) {
       </div>
       <h3 className="text-center mt-5">Connexion</h3>
       <Form className="form" onSubmit={connexionSubmit}>
-
         <Form.Group className="mb-3  " controlId="email">
           <Form.Label>Adresse e-mail </Form.Label>
           <Form.Control
@@ -86,7 +86,7 @@ function Connexion(props) {
           Connexion
         </Button>
         <div className="mt-3">
-          <LinkContainer to="inscription">
+          <LinkContainer to="/inscription">
             <a href="" className="mainTextColor">
               S’inscrire
             </a>

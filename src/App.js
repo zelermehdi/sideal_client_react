@@ -17,35 +17,38 @@ import React, { useState } from "react";
 // Other librairies
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const ThemeContext = React.createContext(null);
+// Start context to pass down the connected user
+const UserContext = React.createContext(null);
 
 function App() {
   // Retrieve the user object from local storage and keep it as state
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   // Update user status after connexion if successful, set both local storage and state to update the view
-  const updateUser = function(data) {
-    localStorage.setItem('user', JSON.stringify(data.user));
+  const updateUser = function (data) {
+    localStorage.setItem("user", JSON.stringify(data.user));
     setUser(data.user);
-  }
-  
+  };
+
   // If we find a connected user
   if (user) {
+    // Create a vairable with state and setter to pass to context
+    const userProvider = {user, setUser};
     // display of routes in relation to the status of the user
     let routing = <UserRoutes />;
     if (user.role === 1) {
       routing = <AdminRoutes />;
     }
+
     // Show the application interface for connected users
     return (
       <div id="App">
-        <Header />
-        <ThemeContext.Provider value={user}>
+        <UserContext.Provider value={userProvider}>
           <BrowserRouter>
+            <Header />
             <Sidebar />
             <Container className="py-4">{routing}</Container>
           </BrowserRouter>
-        </ThemeContext.Provider>
+        </UserContext.Provider>
       </div>
     );
   }
@@ -61,7 +64,10 @@ function App() {
           <Col xs="12" md="6">
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Connexion updateUser={updateUser}/>} />
+                <Route
+                  path="/"
+                  element={<Connexion updateUser={updateUser} />}
+                />
                 <Route path="/inscription" element={<Inscription />} />
               </Routes>
             </BrowserRouter>
@@ -73,3 +79,4 @@ function App() {
 }
 
 export default App;
+export {UserContext};

@@ -34,7 +34,6 @@ function Inscription() {
     error_list: [],
   });
 
-
   const handleInput = (e) => {
     setInscriptionInput({
       ...inscriptionInput,
@@ -42,25 +41,24 @@ function Inscription() {
     });
   };
 
-
-
   const inscriptionSubmit = (e) => {
     e.preventDefault();
     console.log(inscriptionInput);
-    axios.post("http://sideal-refonte-api.local/register", inscriptionInput).then((res) => {
-      if (res.data.status === 200) {
-        console.log("success");
-        // localStorage.setItem("auth_token", res.data.token);
-        // localStorage.setItem("auth_name", res.data.username);
-        swal("Success", res.data.message, "success");
-      } 
-      else {
-        setInscriptionInput({
-          ...inscriptionInput,
-          error_list: res.data.validation_errors
-        });
-      }
-    });
+    axios
+      .post("http://sideal-refonte-api.local/register", inscriptionInput)
+      .then((res) => {
+        if (res.data.status === 200) {
+          console.log("success");
+          // localStorage.setItem("auth_token", res.data.token);
+          // localStorage.setItem("auth_name", res.data.username);
+          swal("Success", res.data.message, "success");
+        } else {
+          setInscriptionInput({
+            ...inscriptionInput,
+            error_list: res.data.validation_errors,
+          });
+        }
+      });
   };
 
   return (
@@ -80,7 +78,7 @@ function Inscription() {
             value={inscriptionInput.first_name}
             placeholder="Nom de famille"
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.first_name}
           </Badge>
         </Form.Group>
@@ -94,7 +92,7 @@ function Inscription() {
             value={inscriptionInput.last_name}
             placeholder="Prénom"
           />
-           <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.last_name}
           </Badge>
         </Form.Group>
@@ -108,7 +106,7 @@ function Inscription() {
             value={inscriptionInput.birthdate}
             placeholder="Date de naissance"
           />
-           <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.birthdate}
           </Badge>
         </Form.Group>
@@ -133,9 +131,9 @@ function Inscription() {
             name="password"
             onChange={handleInput}
             value={inscriptionInput.password}
-            placeholder="Mot de passe"
+            placeholder="doit comporter au moins 8 caractères."
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.password}
           </Badge>
         </Form.Group>
@@ -149,7 +147,7 @@ function Inscription() {
             value={inscriptionInput.confirm_password}
             placeholder="veuillez confirmer votre mot de passe"
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.confirm_password}
           </Badge>
         </Form.Group>
@@ -163,7 +161,7 @@ function Inscription() {
             value={inscriptionInput.phone}
             placeholder="Entrer votre numéro de téléphone"
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.phone}
           </Badge>
         </Form.Group>
@@ -177,7 +175,7 @@ function Inscription() {
             value={inscriptionInput.adresse}
             placeholder="Entrer votre adresse"
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.adresse}
           </Badge>
         </Form.Group>
@@ -190,7 +188,7 @@ function Inscription() {
             value={inscriptionInput.code_postal}
             placeholder="Entrer votre code postal"
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.code_postal}
           </Badge>
         </Form.Group>
@@ -203,7 +201,7 @@ function Inscription() {
             value={inscriptionInput.city}
             placeholder="Entrer votre ville de résidence "
           />
-            <Badge className="bg-white text-danger">
+          <Badge className="bg-white text-danger">
             {inscriptionInput.error_list.city}
           </Badge>
         </Form.Group>
