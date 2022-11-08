@@ -17,6 +17,16 @@ import React, { useState } from "react";
 // Other librairies
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
+
+
+
+
+
+
+
+
+
 // Start context to pass down the connected user
 const UserContext = React.createContext(null);
 
@@ -26,13 +36,14 @@ function App() {
   // Update user status after connexion if successful, set both local storage and state to update the view
   const updateUser = function (data) {
     localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("token", JSON.stringify(data.token));
     setUser(data.user);
   };
 
   // If we find a connected user
   if (user) {
     // Create a vairable with state and setter to pass to context
-    const userProvider = {user, setUser};
+    const userProvider = { user, setUser };
     // display of routes in relation to the status of the user
     let routing = <UserRoutes />;
     if (user.role === 1) {
@@ -79,4 +90,4 @@ function App() {
 }
 
 export default App;
-export {UserContext};
+export { UserContext };

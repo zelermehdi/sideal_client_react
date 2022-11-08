@@ -23,6 +23,7 @@ function Calendrier(props) {
 
         weekDays[day.split(' ')[1]] = (day.split(' '));
 
+
      
     };
     // display of the date when you click on a box
