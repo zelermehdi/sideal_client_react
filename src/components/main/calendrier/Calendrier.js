@@ -10,7 +10,6 @@ import React from 'react'
 
 function Calendrier(props) {
     // function to retrieve the days of the week
-   
     let date = new Date();
     let currentDay = date.getDate();
     let weekDays = [];
@@ -19,58 +18,16 @@ function Calendrier(props) {
         let first = date.getDate() - date.getDay() + i 
         // display of the result of the loop in day date and month
         let day = new Date(date.setDate(first)).toLocaleString('fr-FR', { month: 'long', day: 'numeric', weekday: 'long' })
-        // split the table into subtables
-
+        // split the date string into a table and use the day as index
         weekDays[day.split(' ')[1]] = (day.split(' '));
-
-
-     
     };
+
     // display of the date when you click on a box
     const [selectedDay, setselectedDay] = useState(weekDays[currentDay]);
     const handleClick = event => {
         let dayNumber = event.target.getElementsByClassName('weekDay')[0].innerText;
         setselectedDay(weekDays[dayNumber]);
     };
-
-
-
-        
-
-
-
-
-    
-//  const next = evet=> {
-
- 
-
-//         currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-//         currentMonth = (currentMonth + 1) % 12;
-
-
-
-//     };
-
-
-
-
-
-    
-    //   const previous= event => {
-
-
-
-
-    //     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    //     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-
-    // };
-    
-
-
-
-
     
  
   return (

@@ -35,6 +35,12 @@ function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   // Update user status after connexion if successful, set both local storage and state to update the view
   const updateUser = function (data) {
+
+
+
+    // sessionStorage est similaire à localStorage ; la différence est que même si les données de localStorage n'expirent pas, les données de sessionStorage 
+    //sont effacées à la fin de la session de page . Chaque fois qu'un document est chargé dans un onglet particulier du navigateur, une session de page unique est créée et affectée à cet onglet particulier.
+    
     localStorage.setItem("user", JSON.stringify(data.user));
     localStorage.setItem("token", JSON.stringify(data.token));
     setUser(data.user);

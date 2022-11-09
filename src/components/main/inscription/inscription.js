@@ -60,7 +60,6 @@ function Inscription() {
         }
       });
   };
-
   return (
     <Container>
       <div className="d-flex justify-content-center">

@@ -28,7 +28,8 @@ import { RiPencilLine } from "react-icons/ri";
 import { AiOutlineTeam } from "react-icons/ai";
 import { ImCoinEuro } from "react-icons/im";
 import { VscAccount } from "react-icons/vsc";
-
+import { useContext } from "react";
+import { UserContext } from "App";
 
 const Sidebar = () => {
   //create initial menuCollapse state using useState hook
@@ -39,6 +40,12 @@ const Sidebar = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  const { user, setUser } = useContext(UserContext);
+
+// console.log(user);
+  let first_name = user.members[0].first_name.toUpperCase();
+  let last_name = user.members[0].last_name.toUpperCase();
+  // console.log(user.member.first_name);
 
   return (
     <>
@@ -48,7 +55,7 @@ const Sidebar = () => {
           <SidebarHeader>
             <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p> {menuCollapse ? "JM" : "h"}</p>
+              <p> {menuCollapse ? last_name.substr(0,1)+first_name.substr(0,1): last_name + " " + first_name}</p>
               <p> {menuCollapse ? "" : <SelectMenu />}</p>
             </div>
 

@@ -21,8 +21,7 @@ import swal from "sweetalert";
 
 function Header() {
   // Retrieve the connected user from context
-  const { setUser } = useContext(UserContext);
-
+  const { user, setUser } = useContext(UserContext);
   // HANDLE LOGOUT EVENT
   const logout = (e) => {
     e.preventDefault();
