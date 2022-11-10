@@ -41,7 +41,7 @@ const Sidebar = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
   const { user, setUser } = useContext(UserContext);
-
+console.log(user);
 // console.log(user);
   let first_name = user.members[0].first_name.toUpperCase();
   let last_name = user.members[0].last_name.toUpperCase();
