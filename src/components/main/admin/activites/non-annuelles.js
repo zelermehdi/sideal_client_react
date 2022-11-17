@@ -1,30 +1,17 @@
 import Table from "react-bootstrap/Table";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Creation from "./creation ";
 
-function Activites(props) {
-
-  const [activites, setactivites] = useState([]);
-
-
+function Ponctuelles(props) {
+  const [ponctuelles, SetPonctuelles] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/activities`).then((res) => {
-      const activites = res.data;
-      setactivites(activites);
+    axios.get(`http://sideal-refonte-api.local/api/ponctuel`).then((res) => {
+      const ponctuelles = res.data;
+      SetPonctuelles(ponctuelles);
     });
   }, []);
 
-  const translation = {
-    Monday: "Lundi",
-    Tuesday: "Mardi",
-    Wednesday: "Mercredi",
-    Thursday: "Jeudi",
-    Friday: "Vendredi",
-    Saturday: "Samedi",
-    Sunday: "Dimanche",
-  };
   const type = {
     1: "activites unique",
     0: "activites annuelles",
@@ -37,7 +24,7 @@ function Activites(props) {
 
   return (
     <div>
-      <h4> tableau suivi des activités</h4>
+      <h4>Activités Ponctuelles</h4>
 
       <Table striped>
         <thead>
@@ -60,7 +47,7 @@ function Activites(props) {
           </tr>
         </thead>
         <tbody>
-          {activites.map((activite) => {
+          {ponctuelles.map((activite) => {
             return (
               <tr>
                 <td>{activite.title}</td>
@@ -85,9 +72,8 @@ function Activites(props) {
           })}
         </tbody>
       </Table>
-      <Creation />
     </div>
   );
 }
 
-export default Activites;
+export default Ponctuelles;

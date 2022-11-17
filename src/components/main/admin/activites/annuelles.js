@@ -1,30 +1,17 @@
 import Table from "react-bootstrap/Table";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Creation from "./creation ";
 
-function Activites(props) {
-
-  const [activites, setactivites] = useState([]);
-
-
+function Annuelles(props) {
+  const [annuelles, setannuelles] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/activities`).then((res) => {
-      const activites = res.data;
-      setactivites(activites);
+    axios.get(`http://sideal-refonte-api.local/api/annuel`).then((res) => {
+      const annuelles = res.data;
+      setannuelles(annuelles);
     });
   }, []);
 
-  const translation = {
-    Monday: "Lundi",
-    Tuesday: "Mardi",
-    Wednesday: "Mercredi",
-    Thursday: "Jeudi",
-    Friday: "Vendredi",
-    Saturday: "Samedi",
-    Sunday: "Dimanche",
-  };
   const type = {
     1: "activites unique",
     0: "activites annuelles",
@@ -34,11 +21,9 @@ function Activites(props) {
     0: "oui",
     1: "non",
   };
-
   return (
     <div>
-      <h4> tableau suivi des activités</h4>
-
+      <h4> Activités à l'année</h4>
       <Table striped>
         <thead>
           <tr>
@@ -60,7 +45,7 @@ function Activites(props) {
           </tr>
         </thead>
         <tbody>
-          {activites.map((activite) => {
+          {annuelles.map((activite) => {
             return (
               <tr>
                 <td>{activite.title}</td>
@@ -85,9 +70,8 @@ function Activites(props) {
           })}
         </tbody>
       </Table>
-      <Creation />
     </div>
   );
 }
 
-export default Activites;
+export default Annuelles;

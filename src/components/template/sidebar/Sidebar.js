@@ -7,6 +7,10 @@ import SelectMenu from "../select/select";
 import React, { useState } from "react";
 // Other librairies
 import { LinkContainer } from "react-router-bootstrap";
+import { DropdownButton } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
+
 //import react pro sidebar components
 import {
   ProSidebar,
@@ -41,8 +45,8 @@ const Sidebar = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
   const { user, setUser } = useContext(UserContext);
-console.log(user);
-// console.log(user);
+  // console.log(user);
+  // console.log(user);
   let first_name = user.members[0].first_name.toUpperCase();
   let last_name = user.members[0].last_name.toUpperCase();
   // console.log(user.member.first_name);
@@ -55,7 +59,12 @@ console.log(user);
           <SidebarHeader>
             <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p> {menuCollapse ? last_name.substr(0,1)+first_name.substr(0,1): last_name + " " + first_name}</p>
+              <p>
+                {" "}
+                {menuCollapse
+                  ? last_name.substr(0, 1) + first_name.substr(0, 1)
+                  : last_name + " " + first_name}
+              </p>
               <p> {menuCollapse ? "" : <SelectMenu />}</p>
             </div>
 
@@ -71,6 +80,16 @@ console.log(user);
               </LinkContainer>
               <LinkContainer to="gerer">
                 <MenuItem icon={<FaList />}>Gérer activites</MenuItem>
+              </LinkContainer>
+
+              <LinkContainer to="activités-annuelles">
+                <MenuItem>activités annuelles</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="activites-non-annuelles">
+                <MenuItem>activités non annuelles</MenuItem>
+              </LinkContainer>
+              <LinkContainer to="unique">
+                <MenuItem>unique</MenuItem>
               </LinkContainer>
 
               <LinkContainer to="notifications">

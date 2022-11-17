@@ -3,28 +3,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Creation from "./creation ";
 
-function Activites(props) {
-
+function Unique() {
   const [activites, setactivites] = useState([]);
 
-
-
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/activities`).then((res) => {
+    axios.get(`http://sideal-refonte-api.local/api/unique`).then((res) => {
       const activites = res.data;
       setactivites(activites);
     });
   }, []);
 
-  const translation = {
-    Monday: "Lundi",
-    Tuesday: "Mardi",
-    Wednesday: "Mercredi",
-    Thursday: "Jeudi",
-    Friday: "Vendredi",
-    Saturday: "Samedi",
-    Sunday: "Dimanche",
-  };
   const type = {
     1: "activites unique",
     0: "activites annuelles",
@@ -37,8 +25,7 @@ function Activites(props) {
 
   return (
     <div>
-      <h4> tableau suivi des activités</h4>
-
+      <h4>Activités unique</h4>
       <Table striped>
         <thead>
           <tr>
@@ -65,7 +52,7 @@ function Activites(props) {
               <tr>
                 <td>{activite.title}</td>
                 <td>{activite.file_title}</td>
-                <td style={{ backgroundColor:[activite.color] }}></td>
+                <td style={{ backgroundColor: [activite.color] }}></td>
                 <td> {convert[activite.require_approval]}</td>
                 <td>{convert[activite.adult_only]}</td>
                 <td>{convert[activite.kid_only]}</td>
@@ -85,9 +72,8 @@ function Activites(props) {
           })}
         </tbody>
       </Table>
-      <Creation />
     </div>
   );
 }
 
-export default Activites;
+export default Unique;
