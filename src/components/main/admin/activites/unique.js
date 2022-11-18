@@ -3,21 +3,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Creation from "./creation ";
 
-function Unique() {
+function Unique(props) {
   const [activites, setactivites] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/unique`).then((res) => {
+    axios.get(`http://sideal-refonte-api.local/api/activities/2`).then((res) => {
       const activites = res.data;
       setactivites(activites);
     });
   }, []);
 
   const type = {
-    1: "activites unique",
+    2: "activites unique",
     0: "activites annuelles",
-    2: "activites ponctuelles",
+    1: "activites ponctuelles",
   };
+
+
+  
   const convert = {
     0: "oui",
     1: "non",

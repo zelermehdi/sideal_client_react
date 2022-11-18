@@ -6,17 +6,20 @@ function Annuelles(props) {
   const [annuelles, setannuelles] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/annuel`).then((res) => {
+    axios.get(`http://sideal-refonte-api.local/api/activities/0`).then((res) => {
       const annuelles = res.data;
       setannuelles(annuelles);
     });
   }, []);
 
   const type = {
-    1: "activites unique",
+    2: "activites unique",
     0: "activites annuelles",
-    2: "activites ponctuelles",
+    1: "activites ponctuelles",
   };
+
+
+
   const convert = {
     0: "oui",
     1: "non",

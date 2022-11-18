@@ -6,17 +6,20 @@ function Ponctuelles(props) {
   const [ponctuelles, SetPonctuelles] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://sideal-refonte-api.local/api/ponctuel`).then((res) => {
+    axios.get(`http://sideal-refonte-api.local/api/activities/1`).then((res) => {
       const ponctuelles = res.data;
       SetPonctuelles(ponctuelles);
     });
   }, []);
 
   const type = {
-    1: "activites unique",
+    2: "activites unique",
     0: "activites annuelles",
-    2: "activites ponctuelles",
+    1: "activites ponctuelles",
   };
+
+
+
   const convert = {
     0: "oui",
     1: "non",

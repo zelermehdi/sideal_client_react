@@ -37,7 +37,7 @@ function Activites(props) {
 
   return (
     <div>
-      <h4> tableau suivi des activités</h4>
+      {/* <h4> tableau suivi des activités</h4>
 
       <Table striped>
         <thead>
@@ -84,7 +84,7 @@ function Activites(props) {
             );
           })}
         </tbody>
-      </Table>
+      </Table> */}
       <Creation />
     </div>
   );

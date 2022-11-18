@@ -7,10 +7,8 @@ import Badge from "react-bootstrap/Badge";
 // React components
 import React, { useState } from "react";
 // Other librairies
-import { LinkContainer } from "react-router-bootstrap";
 import axios from "axios";
 import swal from "sweetalert";
-import Activites from "./activites";
 
 axios.defaults.baseURL = "http://sideal-refonte-api.local/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -236,7 +234,7 @@ function Creation() {
         <Form.Select
           className="mb-3"
           onChange={handleInput}
-          value={creationInput.kid_out_sideal_value}
+          value={creationInput.kid_sideal_value}
           name="kid_sideal_value"
         >
           <option value=""> enfants sideal</option>
@@ -308,10 +306,10 @@ function Creation() {
           value={creationInput.type}
           name="type"
         >
-          <option value=""> sélectionner un type</option>
+          <option> sélectionner un type</option>
           <option value="0">annuel</option>
           <option value="1">non annuel</option>
-          <option value="2">ponctuel</option>
+          <option value="2">unique</option>
           <Badge className="bg-white text-danger">
             {creationInput.error_list.type}
           </Badge>
